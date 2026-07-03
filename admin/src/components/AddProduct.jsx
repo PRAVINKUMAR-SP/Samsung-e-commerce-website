@@ -157,7 +157,7 @@ function AddProduct() {
 
             const res = await axios.post(
 
-                "http://localhost:8080/api/products",
+                "https://samsung-backend-xds3.onrender.com/api/products",
 
                 formData
 

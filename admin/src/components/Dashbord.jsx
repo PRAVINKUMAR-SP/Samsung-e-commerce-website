@@ -47,7 +47,7 @@ const Dashbord = () => {
     // USERS
 
     axios.get(
-      "http://localhost:8080/api/auth/users"
+      "https://samsung-backend-xds3.onrender.com/api/auth/users"
     )
 
       .then(res => {
@@ -66,7 +66,7 @@ const Dashbord = () => {
     // PRODUCTS
 
     axios.get(
-      "http://localhost:8080/api/products"
+      "https://samsung-backend-xds3.onrender.com/api/products"
     )
 
       .then(res => {
@@ -86,7 +86,7 @@ const Dashbord = () => {
     // ORDERS
 
     axios.get(
-      "http://localhost:8080/api/orders"
+      "https://samsung-backend-xds3.onrender.com/api/orders"
     )
 
       .then(res => {

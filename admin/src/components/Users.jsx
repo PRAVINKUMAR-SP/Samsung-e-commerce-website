@@ -5,7 +5,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/auth/users")
+    fetch("https://samsung-backend-xds3.onrender.com/api/auth/users")
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch(console.error);

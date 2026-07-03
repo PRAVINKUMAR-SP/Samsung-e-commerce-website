@@ -23,7 +23,7 @@ function Orders() {
 
 
         axios.get(
-            "http://localhost:8080/api/orders"
+            "https://samsung-backend-xds3.onrender.com/api/orders"
         )
 
             .then(res => {
@@ -46,7 +46,7 @@ function Orders() {
 
 
             axios.delete(
-                `http://localhost:8080/api/orders/${id}`
+                `https://samsung-backend-xds3.onrender.com/api/orders/${id}`
             )
 
                 .then(() => {
@@ -154,7 +154,7 @@ items-start sm:items-center
 
 
                                             src={
-                                                `http://localhost:8080/api/products/image/${order.image}`
+                                                `https://samsung-backend-xds3.onrender.com/api/products/image/${order.image}`
                                             }
 
 

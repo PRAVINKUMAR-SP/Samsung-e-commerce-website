@@ -161,7 +161,7 @@ function OrderConfirmPage() {
 
         axios.post(
 
-            "http://localhost:8080/api/orders",
+            "https://samsung-backend-xds3.onrender.com/api/orders",
 
             order
 
@@ -233,7 +233,7 @@ function OrderConfirmPage() {
                         <img
 
                             src={
-                                `http://localhost:8080/api/products/image/${product.image}`
+                                `https://samsung-backend-xds3.onrender.com/api/products/image/${product.image}`
                             }
 
                             className="h-48 md:h-72 w-full object-contain"

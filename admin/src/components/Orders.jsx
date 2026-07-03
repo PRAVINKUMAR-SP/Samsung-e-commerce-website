@@ -23,7 +23,7 @@ const Orders = () => {
 
 
     axios.get(
-      "http://localhost:8080/api/orders"
+      "https://samsung-backend-xds3.onrender.com/api/orders"
     )
 
       .then(res => {
@@ -44,7 +44,7 @@ const Orders = () => {
 
     axios.put(
 
-      `http://localhost:8080/api/orders/${id}?status=${status}`
+      `https://samsung-backend-xds3.onrender.com/api/orders/${id}?status=${status}`
 
     )
 
@@ -140,7 +140,7 @@ gap-4 md:gap-6
                   <img
 
                     src={
-                      `http://localhost:8080/api/products/image/${order.image}`
+                      `https://samsung-backend-xds3.onrender.com/api/products/image/${order.image}`
                     }
 
                     className="

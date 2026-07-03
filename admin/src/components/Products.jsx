@@ -31,7 +31,7 @@ function Product() {
 
 
         axios.get(
-            "http://localhost:8080/api/products"
+            "https://samsung-backend-xds3.onrender.com/api/products"
         )
             .then(res => setProducts(res.data));
 
@@ -107,7 +107,7 @@ function Product() {
 
         await axios.put(
 
-            `http://localhost:8080/api/products/${editId}`,
+            `https://samsung-backend-xds3.onrender.com/api/products/${editId}`,
 
             form
 
@@ -138,7 +138,7 @@ function Product() {
 
             await axios.delete(
 
-                `http://localhost:8080/api/products/${id}`
+                `https://samsung-backend-xds3.onrender.com/api/products/${id}`
 
             );
 
@@ -475,7 +475,7 @@ function Product() {
                                                 <img
 
                                                     src={
-                                                        `http://localhost:8080/api/products/image/${p.image}`
+                                                        `https://samsung-backend-xds3.onrender.com/api/products/image/${p.image}`
                                                     }
 
                                                     className="w-16 md:w-20 h-16 md:h-20 object-cover rounded"

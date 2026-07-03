@@ -17,7 +17,7 @@ function Product() {
 
 
         axios.get(
-            "http://localhost:8080/api/products"
+            "https://samsung-backend-xds3.onrender.com/api/products"
         )
             .then(res => {
 
@@ -80,7 +80,7 @@ transition
                                 <img
 
                                     src={
-                                        `http://localhost:8080/api/products/image/${p.image}`
+                                        `https://samsung-backend-xds3.onrender.com/api/products/image/${p.image}`
                                     }
 
                                     className="
