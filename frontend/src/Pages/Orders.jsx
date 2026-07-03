@@ -20,19 +20,16 @@ function Orders() {
 
 
     const loadOrders = () => {
-
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser) return;
 
         axios.get(
-            "https://samsung-backend-xds3.onrender.com/api/orders"
+            `https://samsung-backend-xds3.onrender.com/api/orders/customer/${currentUser.name}`
         )
-
             .then(res => {
-
                 setOrders(res.data);
-
             })
-
-
+            .catch(err => console.error(err));
     }
 
 

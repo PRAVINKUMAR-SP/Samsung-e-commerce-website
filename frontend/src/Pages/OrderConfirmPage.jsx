@@ -24,27 +24,23 @@ function OrderConfirmPage() {
 
 
 
+    const savedAddr = JSON.parse(localStorage.getItem("userAddress"));
+
     const [useOldAddress, setUseOldAddress] =
-        useState(true);
-
-
+        useState(savedAddr ? true : false);
 
     const [quantity, setQuantity] = useState(1);
-
-
 
     const [name, setName] = useState(
         currentUser?.name || ""
     );
 
-
     const [phone, setPhone] = useState(
-        currentUser?.phone || ""
+        savedAddr?.phone || ""
     );
 
-
     const [address, setAddress] = useState(
-        currentUser?.address || ""
+        savedAddr?.address || ""
     );
 
 
@@ -158,6 +154,8 @@ function OrderConfirmPage() {
 
 
 
+
+        localStorage.setItem("userAddress", JSON.stringify({ phone, address }));
 
         axios.post(
 
@@ -422,7 +420,13 @@ text-sm md:text-base
                                     checked={useOldAddress}
 
 
-                                    onChange={() => setUseOldAddress(true)}
+                                    onChange={() => {
+                                        setUseOldAddress(true);
+                                        if (savedAddr) {
+                                            setPhone(savedAddr.phone);
+                                            setAddress(savedAddr.address);
+                                        }
+                                    }}
 
 
                                 />
@@ -438,7 +442,7 @@ text-sm md:text-base
 
                             {
 
-                                useOldAddress && currentUser &&
+                                useOldAddress && savedAddr &&
 
 
                                 <div className="mt-4 bg-gray-100 p-3 md:p-4 rounded text-sm md:text-base">
@@ -446,22 +450,14 @@ text-sm md:text-base
 
                                     <p>
 
-                                        <b>Name:</b> {currentUser.name}
+                                        <b>Name:</b> {currentUser?.name}
 
                                     </p>
 
 
                                     <p>
 
-                                        <b>Email:</b> {currentUser.email}
-
-                                    </p>
-
-
-
-                                    <p>
-
-                                        <b>Phone:</b> {currentUser.phone}
+                                        <b>Phone:</b> {savedAddr.phone}
 
                                     </p>
 
@@ -469,7 +465,7 @@ text-sm md:text-base
 
                                     <p>
 
-                                        <b>Address:</b> {currentUser.address}
+                                        <b>Address:</b> {savedAddr.address}
 
                                     </p>
 
@@ -504,7 +500,11 @@ text-sm md:text-base
                                 checked={!useOldAddress}
 
 
-                                onChange={() => setUseOldAddress(false)}
+                                    onChange={() => {
+                                        setUseOldAddress(false);
+                                        setPhone("");
+                                        setAddress("");
+                                    }}
 
 
                             />
