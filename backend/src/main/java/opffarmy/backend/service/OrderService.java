@@ -39,6 +39,11 @@ public class OrderService {
         return orderRepository.findByPhone(phone);
     }
 
+    // Get Orders By Customer Name
+    public List<Order> getOrdersByCustomerName(String name) {
+        return orderRepository.findByCustomerName(name);
+    }
+
     // Get Orders By Status
     public List<Order> getOrdersByStatus(String status) {
 

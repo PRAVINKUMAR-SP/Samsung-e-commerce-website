@@ -61,6 +61,14 @@ public class OrderController {
 
     }
 
+    // GET ORDERS BY CUSTOMER NAME
+    @GetMapping("/customer/{name}")
+    public List<Order> getOrdersByCustomerName(
+            @PathVariable String name
+    ) {
+        return orderService.getOrdersByCustomerName(name);
+    }
+
     // UPDATE ORDER STATUS
     @PutMapping("/{id}")
     public Order updateOrderStatus(
