@@ -12,4 +12,11 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 RUN mkdir -p /app/uploads
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", \
+    "-XX:+TieredCompilation", \
+    "-XX:TieredStopAtLevel=1", \
+    "-XX:+UseSerialGC", \
+    "-Xms128m", \
+    "-Xmx256m", \
+    "-Dspring.jmx.enabled=false", \
+    "-jar", "app.jar"]
