@@ -12,11 +12,9 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
 
         registry.addMapping("/api/**")
-                .allowedOrigins(
-                        "https://samsung-e-commerce-website.vercel.app",
-                        "https://samsung-e-commerce-website-j4k3.vercel.app",
-                        "http://localhost:5173",
-                        "http://localhost:5174"
+                .allowedOriginPatterns(
+                        "https://samsung-e-commerce-website*.vercel.app",
+                        "http://localhost:*"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
