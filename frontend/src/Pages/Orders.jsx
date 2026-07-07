@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getStoredJSON } from "../utils/storage";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
 
@@ -20,7 +21,7 @@ function Orders() {
 
 
     const loadOrders = () => {
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        const currentUser = getStoredJSON("currentUser");
         if (!currentUser) return;
 
         axios.get(

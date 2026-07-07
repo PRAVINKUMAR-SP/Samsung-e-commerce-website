@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import { getStoredJSON } from "../utils/storage";
 import { useState } from "react";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
@@ -18,13 +19,13 @@ function OrderConfirmPage() {
 
 
     const currentUser =
-        JSON.parse(localStorage.getItem("currentUser"));
+        getStoredJSON("currentUser");
 
 
 
 
 
-    const savedAddr = JSON.parse(localStorage.getItem("userAddress"));
+    const savedAddr = getStoredJSON("userAddress");
 
     const [useOldAddress, setUseOldAddress] =
         useState(savedAddr ? true : false);

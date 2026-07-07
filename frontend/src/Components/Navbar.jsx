@@ -1,4 +1,5 @@
 import React from "react";
+import { getStoredJSON } from "../utils/storage";
 import axios from "axios";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FaBoxOpen } from "react-icons/fa";
@@ -15,7 +16,7 @@ const Navbar = () => {
 
 
     const [user, setUser] = React.useState(
-        JSON.parse(localStorage.getItem("currentUser"))
+        getStoredJSON("currentUser")
     );
 
 
@@ -32,7 +33,7 @@ const Navbar = () => {
     React.useEffect(() => {
 
         setUser(
-            JSON.parse(localStorage.getItem("currentUser"))
+            getStoredJSON("currentUser")
         );
 
     }, []);
