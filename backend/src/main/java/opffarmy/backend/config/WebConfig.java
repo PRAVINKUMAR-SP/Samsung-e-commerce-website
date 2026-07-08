@@ -14,9 +14,20 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**")
                 .allowedOriginPatterns(
                         "https://samsung-e-commerce-website*.vercel.app",
+                        "https://*.vercel.app",
                         "http://localhost:*"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
+
+        registry.addMapping("/uploads/**")
+                .allowedOriginPatterns(
+                        "https://samsung-e-commerce-website*.vercel.app",
+                        "https://*.vercel.app",
+                        "http://localhost:*"
+                )
+                .allowedMethods("GET")
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
